@@ -1,47 +1,48 @@
-module.exports=BabelParser; 
+module.exports = BabelParser;
+
+function repeat(s, num) {
+	return new Array(num + 1).join(s);
+};
 
 function BabelParser(s) {
-		
+
 	this.ix = 0;
 	this.sa = new Array();
 	this.outStr = "";
 	this.start = 0;
 
 	// convert input string to character array
-	
+
 	for ( var i = 0; i < s.length; i++) {
 		this.sa.push(s[i]);
-	}	
-    
-	
+	}
+
 	// get output stream, and clear it
-	
+
 	BabelParser.prototype.getOS = function() {
 		var os = this.outStr;
 		this.outStr = "";
 		return os;
 	};
-	
-    // get current slice
-	
-	BabelParser.prototype.getCurSlice = function() {	
+
+	// get current slice
+
+	BabelParser.prototype.getCurSlice = function() {
 		var end;
 		this.start = Math.max(this.ix - 12, 0);
-		end =  Math.min(this.ix + 12, this.sa.length);
-		var res = this.sa.slice(this.start, end);		
+		end = Math.min(this.ix + 12, this.sa.length);
+		var res = this.sa.slice(this.start, end);
 		return res.join("").replace(/\s/g, ".");
 	};
-	
-	
-// get current position
-	
-	BabelParser.prototype.getCurPosn = function() {	
+
+	// get current position
+
+	BabelParser.prototype.getCurPosn = function() {
 		var i = this.ix - this.start;
-		var res = ".".repeat(i) + "^";
+		var res = repeat(".", i) + "^";
 		return res;
 	};
-	
-	
+
 	// upper and lower case alpha
 
 	BabelParser.prototype.ta = function(opt) {
@@ -64,7 +65,7 @@ function BabelParser(s) {
 	};
 
 	// numeric characters
-	
+
 	BabelParser.prototype.tn = function(opt) {
 		if (this.ix >= this.sa.length)
 			return false;
@@ -85,7 +86,7 @@ function BabelParser(s) {
 	};
 
 	// white space characters, except for end of line
-	
+
 	BabelParser.prototype.tb = function(opt) {
 		if (this.ix >= this.sa.length)
 			return false;
@@ -108,7 +109,7 @@ function BabelParser(s) {
 	};
 
 	// character comparator
-	
+
 	BabelParser.prototype.tc = function(c, opt) {
 		if (this.ix >= this.sa.length)
 			return false;
@@ -125,7 +126,7 @@ function BabelParser(s) {
 		}
 		return true;
 	};
-	
+
 	// all characters except special characters
 
 	BabelParser.prototype.tv = function(opt) {
@@ -148,7 +149,7 @@ function BabelParser(s) {
 	};
 
 	// copy from input to output (unmodified universal comparator)
-	
+
 	BabelParser.prototype.copy = function() {
 		if (this.ix >= this.sa.length)
 			return false;
@@ -156,7 +157,7 @@ function BabelParser(s) {
 		this.ix++;
 		return true;
 	};
-	
+
 	// skip input (modified universal comparator)
 
 	BabelParser.prototype.skip = function() {
@@ -171,7 +172,7 @@ function BabelParser(s) {
 		var res = (this.ix >= this.sa.length);
 		return res;
 	};
-	
+
 	BabelParser.prototype.strcmp = function(str) {
 		var slice = this.sa.slice(this.ix, this.ix + str.length);
 		var s = slice.join("");
@@ -179,4 +180,3 @@ function BabelParser(s) {
 		return res;
 	};
 }
- 
