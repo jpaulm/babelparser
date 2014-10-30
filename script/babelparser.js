@@ -32,14 +32,14 @@ BabelParser.prototype.getCurSlice = function() {
 	this.start = Math.max(this.ix - 12, 0);
 	end = Math.min(this.ix + 12, this.sa.length);
 	var res = this.sa.slice(this.start, end);
-	return res.join("").replace(/\s/g, ".");
+	return res.join("");   // .replace(/\s/g, ".");
 };
 
 // get current position
 
 BabelParser.prototype.getCurPosn = function() {
 	var i = this.ix - this.start;
-	var res = repeat(".", i) + "^";
+	var res = repeat(" ", i) + "^";
 	return res;
 };
 
