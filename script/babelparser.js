@@ -29,10 +29,21 @@ BabelParser.prototype.getOS = function() {
 
 BabelParser.prototype.getCurSlice = function() {
 	var end;
-	this.start = Math.max(this.ix - 12, 0);
-	end = Math.min(this.ix + 12, this.sa.length);
-	var res = this.sa.slice(this.start, end);
-	return res.join("");   // .replace(/\s/g, ".");
+	var x = 0;
+	var y = this.sa.length;
+	
+	for (var i = 0; i < this.sa.length; i++)
+		{
+		if (this.sa[i] == '\n' && i < this.ix)
+			x = i + 1;
+		if (this.sa[i] == '\n' && i > this.ix && y == this.sa.length)
+			y = i;
+		}
+	x = Math.max(this.ix - 12, x);
+	y = Math.min(this.ix + 12, y);
+	this.start = x;
+	var res = this.sa.slice(x, y);
+	return res.join("");   
 };
 
 // get current position
