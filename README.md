@@ -1,5 +1,7 @@
 # The BabelParser
 
+BabelParser is registered on `npm`, so to install it, just type `npm install babelparser`.
+
 The BabelParser is a low-level parsing concept that supports its own graphical notation. It was invented in the UK many 
 years ago, and I have since ported it to just about every environment I've ever worked in.
 
