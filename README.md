@@ -59,6 +59,6 @@ the output stream, up to but not including the following '>'. I will use 'U' for
 
 ```
 
-In this logic _all_ characters between the angle brackets will be copied, including line-ends. This logic can easily be expanded to meke it more sophisticated.
+In this diagram _all_ characters between the angle brackets will be copied, including line-ends. This logic can easily be expanded to make it more sophisticated.
 
 A working example of the use of BabelParser can be found in https://github.com/jpaulm/parsefbp .
