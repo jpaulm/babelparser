@@ -36,9 +36,9 @@ represented as follows (I'll have to use squares for everything, and 'b' for bla
 ```           
 
 On completion of this scan, the output stream will contain A, B or C, and the output pointer will be positioned after 
-this letter.  Any consecutive blanks will be skipped, up to the first non-blank.
+this letter.  Any consecutive blanks in the input will have been skipped, up to the first non-blank.
 
-If none of A, B, or C was found at the position marked by the input pointer, the logic will proceed to the code "below" the 
+If none of A, B, or C were found at the position marked by the input pointer, the logic will proceed to the code below the 
 test for 'C' (marked with an X).
 
 One more example: we want to test if the current character is a '<', and, if it is, copy all the following characters to 
@@ -59,4 +59,6 @@ the output stream, up to but not including the following '>'. I will use 'U' for
 
 ```
 
-An example of the use of BabelParser can be found in https://github.com/jpaulm/parsefbp .
+In this logic _all_ characters between the angle brackets will be copied, including line-ends. This logic can easily be expanded to meke it more sophisticated.
+
+A working example of the use of BabelParser can be found in https://github.com/jpaulm/parsefbp .
