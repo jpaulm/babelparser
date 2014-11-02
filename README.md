@@ -46,7 +46,7 @@ var bp = new BabelParser(s); // where s is the string to be scanned
 
 if (bp.tc('A') || bp.tc('B') || bp.tc('C') {    // character comparators
    while (true) {
-      if (!bp.tb("o"))  // tb actually tests for any 'white space'
+      if (!bp.tb('o'))  // tb actually tests for any 'white space'
          break;
    } 
    // found first non-blank
@@ -86,9 +86,9 @@ var bp = new BabelParser(s); // where s is the string to be scanned
 
 ...
 
-if (bp.tc('<', "o")) {
+if (bp.tc('<', 'o')) {
    while (true) {
-      if (bp.tc('>', "o")) 
+      if (bp.tc('>', 'o')) 
          break;
       if (!bp.copy)
          break;                 //  break only if end of file
@@ -101,6 +101,6 @@ if (bp.tc('<', "o")) {
 
 In this diagram _all_ characters between the angle brackets will be copied, including line-ends. This logic can easily be expanded to make it more sophisticated.
 
-Coding note:  if both I-modification and O-modification are required, they are written as one string, i.e. `bp.tc('x',"io")`. 
+Coding note:  if both I-modification and O-modification are required, they are written as one string, i.e. `bp.tc('x', 'io')`. 
 
 A working example of the use of BabelParser can be found in https://github.com/jpaulm/parsefbp .
