@@ -93,6 +93,7 @@ if (bp.tc('<', "o")) {
       if (!bp.copy)
          break;                 //  break only if end of file
    }
+   var tag = bp.getOS();        // retrieves the output stream, and clears it
 }
 
 
