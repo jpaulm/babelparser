@@ -101,4 +101,6 @@ if (bp.tc('<', "o")) {
 
 In this diagram _all_ characters between the angle brackets will be copied, including line-ends. This logic can easily be expanded to make it more sophisticated.
 
+Coding note:  if both I-modification and O-modification are required, they are written as one string, i.e. `bp.tc('x',"io")`. 
+
 A working example of the use of BabelParser can be found in https://github.com/jpaulm/parsefbp .
