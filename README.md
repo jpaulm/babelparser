@@ -35,7 +35,25 @@ represented as follows (I'll have to use squares for everything, and 'b' for bla
            |
            X
            
-```           
+```    
+
+Partial code:
+
+```
+var bp = new BabelParser(s); // where s is the string to be scanned
+
+...
+
+if (bp.tc('A') || bp.tc('B') || bp.tc('C') {    // character comparators
+   while (true) {
+      if (!bp.tb("o"))  // tb actually tests for any 'white space'
+         break;
+   } 
+   // found first non-blank
+}
+else
+// X  in diagram
+```
 
 On completion of this scan, the output stream will contain A, B or C, and the output pointer will be positioned after 
 this letter.  Any consecutive blanks in the input will have been skipped, up to the first non-blank.
@@ -55,9 +73,28 @@ the output stream, up to but not including the following '>'. I will use 'U' for
            |              |          |                  are in the output stream
         not a '<'         |       *-----*
                           |       |  U  |-----*  (remember the universal comparator
-                          |       *-----*     |       is always true - so without 
-                          |                   |       O-mod, it is a 'copy') 
+                          |       *-----*     |       is only false at end of file, - so 
+                          |                   |       without O-mod, it is a 'copy') 
                           *-------------------*
+
+```
+
+Partial code:
+
+```
+var bp = new BabelParser(s); // where s is the string to be scanned
+
+...
+
+if (bp.tc('<', "o")) {
+   while (true) {
+      if (bp.tc('>', "o")) 
+         break;
+      if (!bp.copy)
+         break;                 //  break only if end of file
+   }
+}
+
 
 ```
 
