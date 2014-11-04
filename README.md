@@ -26,8 +26,8 @@ represented as follows (I'll have to use squares for everything, and 'b' for bla
         *-----*     A        *-----*
            |        |           |  O-mod
         *-----*     |           |            
-        |  B  |-----*           *----------->  we have found the first non-blank
-        *-----*     |
+        |  B  |-----*           *-------->  we have found 
+        *-----*     |                         the first non-blank
            |        |
         *-----*     |
         |  C  |-----*
@@ -44,7 +44,7 @@ var bp = new BabelParser(s); // where s is the string to be scanned
 
 ...
 
-if (bp.tc('A') || bp.tc('B') || bp.tc('C') {    // character comparators
+if (bp.tc('A') || bp.tc('B') || bp.tc('C') { // character comparators
    while (true) {
       if (!bp.tb('o'))  // tb actually tests for any 'white space'
          break;
@@ -66,16 +66,16 @@ the output stream, up to but not including the following '>'. I will use 'U' for
 
 ```
                          
-        *-----*                   *-----*      
-  ----->|  <  |-----------*------>|  >  |------ we have found the '>' and are 
-        *-----*           |       *-----*               positioned just beyond it,
-           |  O-mod       |          |  O-mod           and the intervening characters
-           |              |          |                  are in the output stream
-        not a '<'         |       *-----*
-                          |       |  U  |-----*  (remember the universal comparator
-                          |       *-----*     |       is only false at end of file, - so 
-                          |                   |       without O-mod, it is a 'copy') 
-                          *-------------------*
+        *-----*                *-----*      
+  ----->|  <  |--------*------>|  >  |------ we have found the '>' and  
+        *-----*        |       *-----*         are positioned just beyond it -
+           |  O-mod    |          |  O-mod     the intervening characters
+           |           |          |              are in the output stream
+        not a '<'      |       *-----*
+                       |       |  U  |-----*  (the universal comparator
+                       |       *-----*     |     is only false at end of file:
+                       |                   |     without O-mod, it is a 'copy') 
+                       *-------------------*
 
 ```
 
