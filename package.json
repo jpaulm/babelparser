@@ -1,6 +1,6 @@
 {
   "name": "babelparser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "General Babel Parser functions for scanners  ",
   "main": "script/babelparser.js",
   "directories": {

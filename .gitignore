@@ -6,3 +6,7 @@
 #Windows stuff
 
 Thumbs.db
+
+# npm stuff
+
+npm-debug.log
