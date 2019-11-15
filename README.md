@@ -14,7 +14,7 @@ and the "universal comparator", which is always true (except at end of file). Th
 In Babel diagrams, a comparator is represented by a circle or a square, and a true result by a line exiting to the right, and 
 a false result by a line exiting downwards. The universal comparator when unmodified is essentially a "copy", while with O-modification, it is a "skip" - I have used these names in the code.
 
-Suppose I want to test for A, B or C, followed by 0 or more blanks (which are not be copied to the output stream), this can be 
+Suppose I want to test for A, B or C, followed by 0 or more blanks (which are not to be copied to the output stream), this can be 
 represented as follows (I'll have to use squares for everything, and 'b' for blank):
 
 ```
